@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Panel de Visualización - Pobreza en México</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawCharts);
+
+    function drawCharts() {
+
+      // Gráfico 1 - Línea
+      var data1 = google.visualization.arrayToDataTable([
+        ['Año', 'Pobreza'],
+        ['2008', 44.4],
+        ['2010', 46.1],
+        ['2012', 45.5],
+        ['2014', 46.2],
+        ['2016', 43.6],
+        ['2018', 41.9]
+      ]);
+
+      var chart1 = new google.visualization.LineChart(document.getElementById('chart1'));
+      chart1.draw(data1);
+
+      // Gráfico 2 - Barras
+      var data2 = google.visualization.arrayToDataTable([
+        ['Año', 'Pobreza Extrema'],
+        ['2008', 11.0],
+        ['2010', 11.3],
+        ['2012', 9.8],
+        ['2014', 9.5],
+        ['2016', 7.6],
+        ['2018', 7.4]
+      ]);
+
+      var chart2 = new google.visualization.BarChart(document.getElementById('chart2'));
+      chart2.draw(data2);
+
+      // Gráfico 3 - Pie
+      var data3 = google.visualization.arrayToDataTable([
+        ['Condición', 'Porcentaje'],
+        ['Pobreza', 41.9],
+        ['Vulnerable', 29.3],
+        ['No pobre', 28.8]
+      ]);
+
+      var chart3 = new google.visualization.PieChart(document.getElementById('chart3'));
+      chart3.draw(data3);
+
+      // Gráfico 4 - Columnas
+      var data4 = google.visualization.arrayToDataTable([
+        ['Carencia', 'Porcentaje'],
+        ['Rezago educativo', 16.9],
+        ['Salud', 16.2],
+        ['Seguridad social', 57.3],
+        ['Vivienda', 11.1],
+        ['Alimentación', 20.4]
+      ]);
+
+      var chart4 = new google.visualization.ColumnChart(document.getElementById('chart4'));
+      chart4.draw(data4);
+
+      // Gráfico 5 - Área
+      var chart5 = new google.visualization.AreaChart(document.getElementById('chart5'));
+      chart5.draw(data2);
+
+    }
+  </script>
+</head>
+
+<body>
+  <h2>Panel de Visualización - Pobreza en México (2008-2018)</h2>
+  <div id="chart1" style="width: 600px; height: 400px;"></div>
+  <div id="chart2" style="width: 600px; height: 400px;"></div>
+  <div id="chart3" style="width: 600px; height: 400px;"></div>
+  <div id="chart4" style="width: 600px; height: 400px;"></div>
+  <div id="chart5" style="width: 600px; height: 400px;"></div>
+</body>
+</html>
